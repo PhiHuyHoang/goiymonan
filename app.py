@@ -19,7 +19,7 @@ def main():
     return 'Hello Hoang'
 
 
-@app.route('/webhook', methods=['POST','GET'])
+@app.route('/webhook', methods=['POST'])
 def webhook():
 	url = 'https://7monngonmoingay.net/page'+ str(randint(1,290))
 	print('Url: %s...' % (url))
