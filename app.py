@@ -29,7 +29,7 @@ def webhook():
 	first_link = mainthing.find_all('a')
 	link = choice(first_link)
 	link = link['href']
-	res = {'fulfillmentText': link}
+	res = json.dumps({'fulfillmentText': link})
 	r = make_response(res)
 	return link
 
