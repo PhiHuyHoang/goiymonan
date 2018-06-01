@@ -23,17 +23,17 @@ def main():
 
 @app.route('/webhook', methods=['POST','GET'])
 def webhook():
-    url = 'https://7monngonmoingay.net/page'+ str(randint(1,290))
-    print('Url: %s...' % (url))
-    page = requests.get(url)
-    soup = bs4.BeautifulSoup(page.content, 'html.parser')
-    mainthing = soup.find(id='content')
-    first_link = mainthing.find_all('a')
-    link = choice(first_link)
+	url = 'https://7monngonmoingay.net/page'+ str(randint(1,290))
+	print('Url: %s...' % (url))
+	page = requests.get(url)
+	soup = bs4.BeautifulSoup(page.content, 'html.parser')
+	mainthing = soup.find(id='content')
+	first_link = mainthing.find_all('a')
+	link = choice(first_link)
 	link = link['href']
 	res = {'fulfillmentText': link}
 	r = make_response(res)
-    return r
+	return r
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8000))
