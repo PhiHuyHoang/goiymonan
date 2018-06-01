@@ -1,16 +1,14 @@
-import json, requests, sys,bs4
-import json
-import os
-
 from __future__ import print_function
 from future.standard_library import install_aliases
-install_aliases()
-
-
 from flask import Flask, render_template, json, request
 from flask import request
 from flask import make_response
 from random import choice, randint
+import json, requests, sys,bs4
+import json
+import os
+
+install_aliases()
 
 # Flask app should start in global layout
 app = Flask(__name__)
