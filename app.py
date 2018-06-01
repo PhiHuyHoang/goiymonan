@@ -25,7 +25,11 @@ def webhook():
     mainthing = soup.find(id='content')
     first_link = mainthing.find_all('a')
     link = choice(first_link)
-    return link['href']
+	link = link['href']
+	link = json.dumps(link, ensure_ascii=False).encode('utf8')
+	r = make_response(link)
+    r.headers['Content-Type'] = 'application/json'
+    return r
 
 if __name__ == '__main__':
     app.run()
