@@ -31,7 +31,7 @@ def webhook():
 	link = link['href']
 	res = {'fulfillmentText': link}
 	r = make_response(res)
-	return r
+	return link
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8000))
