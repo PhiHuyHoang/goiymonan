@@ -26,9 +26,8 @@ def webhook():
     first_link = mainthing.find_all('a')
     link = choice(first_link)
 	link = link['href']
-	link = json.dumps(link, ensure_ascii=False).encode('utf8')
-	r = make_response(link)
-    r.headers['Content-Type'] = 'application/json'
+	res = {'fulfillmentText': link}
+	r = make_response(res)
     return r
 
 if __name__ == '__main__':
