@@ -2,6 +2,11 @@ import json, requests, sys,bs4
 import json
 import os
 
+from __future__ import print_function
+from future.standard_library import install_aliases
+install_aliases()
+
+
 from flask import Flask, render_template, json, request
 from flask import request
 from flask import make_response
@@ -27,7 +32,12 @@ def webhook():
     link = choice(first_link)
 	link = link['href']
 	res = {'fulfillmentText': link}
-    return link
+	r = make_response(res)
+    return r
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.getenv('PORT', 8000))
+
+    print("Starting app on port %d" % port)
+
+app.run(debug=False, port=port, host='0.0.0.0')
