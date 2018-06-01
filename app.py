@@ -27,8 +27,7 @@ def webhook():
     link = choice(first_link)
 	link = link['href']
 	res = {'fulfillmentText': link}
-	r = make_response(res)
-    return r
+    return res
 
 if __name__ == '__main__':
     app.run()
